@@ -36,7 +36,7 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
         require(whitelist.whitelistedAddresses(msg.sender), "You are not whitelisted");
         require(tokenIds < maxTokenIds, "Max supply reached");
         require(msg.value >= _price, "Ether is not sent correct");
-        tokenIds +1;
+        tokenIds ++;
     
         _safeMint(msg.sender, tokenIds);
     }
@@ -45,7 +45,7 @@ contract CryptoDevs is ERC721Enumerable, Ownable {
         require(presaleStarted && block.timestamp >= presaleEnded, "Presale has not ended yet");
         require(tokenIds < maxTokenIds, "Max supply reached");
         require(msg.value >= _price, "Invalid ETH amount!");
-        tokenIds +1;
+        tokenIds ++;
         _safeMint(msg.sender, tokenIds);
     }
 
